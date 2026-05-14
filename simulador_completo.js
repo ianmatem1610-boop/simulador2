@@ -157,4 +157,62 @@ function calcularCredito() {
     "Cuota mensual: " + cuota.toFixed(2) + "<br>" +
     mensajeResultado;
 }
+
+function solicitarCredito() {
+    // 1. Creamos el objeto crédito con los datos actuales
+    let monto = recuperarFloat("montoCredito");
+    let plazo = recuperarInt("plazoCredito");
+    let totalPagar = monto + (monto * (tasaInteres / 100));
+    let cuota = totalPagar / plazo;
+
+    let nuevoCredito = {
+        cedula: clienteEncontradoCredito.cedula,
+        nombre: clienteEncontradoCredito.nombre,
+        apellido: clienteEncontradoCredito.apellido,
+        monto: monto,
+        tasa: tasaInteres,
+        plazo: plazo,
+        cuota: cuota.toFixed(2)
+    };
+
+    // 2. Lo guardamos en el arreglo global
+    creditos.push(nuevoCredito);
+    
+    alert("Crédito asignado exitosamente");
+    
+    // 3. Limpiamos y actualizamos la tabla del historial
+    pintarCreditos(creditos);
+}
+
+function pintarCreditos(arregloCreditos) {
+    let contenidoTabla = "";
+    let tabla = document.getElementById("tablaCreditos");
+
+    for (let i = 0; i < arregloCreditos.length; i++) {
+        let cre = arregloCreditos[i];
+        contenidoTabla += "<tr>" +
+            "<td>" + cre.cedula + "</td>" +
+            "<td>" + cre.nombre + "</td>" +
+            "<td>" + cre.apellido + "</td>" +
+            "<td>" + cre.monto + "</td>" +
+            "<td>" + cre.tasa + "%</td>" +
+            "<td>" + cre.plazo + " meses</td>" +
+            "<td>" + cre.cuota + "</td>" +
+        "</tr>";
+    }
+    tabla.innerHTML = contenidoTabla;
+}
+
+function buscarCreditosCliente() {
+    let cedulaABuscar = recuperaraTexto("buscarCedulaListado");
+    let creditosFiltrados = [];
+
+    for (let i = 0; i < creditos.length; i++) {
+        if (creditos[i].cedula == cedulaABuscar) {
+            creditosFiltrados.push(creditos[i]);
+        }
+    }
+    
+    pintarCreditos(creditosFiltrados);
+}
 //Para recuperar o mostrar información usar los métodos de la clase utilitarios, puede agregar métodos adicionales en utilitarios

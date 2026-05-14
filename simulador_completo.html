@@ -18,6 +18,7 @@
       <button onclick="mostrarSeccion('parametros')">Parámetros</button>
       <button onclick="mostrarSeccion('clientes')">Clientes</button>
       <button onclick="mostrarSeccion('credito')">Créditos</button>
+      <button onclick="mostrarSeccion('listaCreditos')">Historial</button>
     </nav>
   </nav>
 
@@ -97,26 +98,49 @@
 
 
   <section id="credito">
-  <h2>Solicitar Crédito</h2>
+    <h2>Solicitar Crédito</h2>
 
-  <input type="text" id="buscarCedulaCredito" placeholder="Ingrese cédula">
-  <button onclick="buscarClienteCredito()">Buscar cliente</button>
+    <input type="text" id="buscarCedulaCredito" placeholder="Ingrese cédula">
+    <button onclick="buscarClienteCredito()">Buscar cliente</button>
 
-  <div id="datosClienteCredito" class="card"></div>
+    <div id="datosClienteCredito" class="card"></div>
 
-  <input type="number" id="montoCredito" placeholder="Monto (ej: 500)">
-  <input type="number" id="plazoCredito" placeholder="Plazo en meses (ej: 12)">
+    <input type="number" id="montoCredito" placeholder="Monto (ej: 500)">
+    <input type="number" id="plazoCredito" placeholder="Plazo en meses (ej: 12)">
 
-  <br>
+    <br>
 
-  <button onclick="calcularCredito()">Calcular crédito</button>
+    <button onclick="calcularCredito()">Calcular crédito</button>
 
-  <div id="resultadoCredito"></div>
+    <div id="resultadoCredito"></div>
 
-  <button id="btnSolicitarCredito" onclick="solicitarCredito()" disabled>
-    Solicitar crédito
-  </button>
-</section>
+    <button id="btnSolicitarCredito" onclick="solicitarCredito()" disabled>
+      Solicitar crédito
+    </button>
+  </section>
+
+  <section id="listaCreditos">
+    <h2>Créditos Registrados</h2>
+    <input type="text" id="buscarCedulaListado" placeholder="Cédula a buscar">
+    <button onclick="buscarCreditosCliente()">Buscar</button>
+    <button onclick="pintarCreditos(creditos)">Ver todos</button>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Cédula</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Monto</th>
+          <th>Tasa</th>
+          <th>Plazo</th>
+          <th>Cuota</th>
+        </tr>
+      </thead>
+      <tbody id="tablaCreditos">
+      </tbody>
+    </table>
+  </section>
 
 
 
