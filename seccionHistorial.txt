@@ -1,0 +1,54 @@
+
+<section id="listaCreditos">
+  <h2>Créditos Registrados</h2>
+
+  <input type="text" id="buscarCedulaListado" >
+  <button onclick="buscarCreditosCliente()">Buscar</button>
+  <button onclick="pintarCreditos(creditos)">Ver todos</button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Cédula</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Monto</th>
+        <th>Tasa</th>
+        <th>Plazo</th>
+        <th>Cuota</th>
+      </tr>
+    </thead>
+    <tbody id="tablaCreditos">
+       <tr>
+          <td>1712345678</td>
+          <td>Juan</td>
+          <td>Pérez</td>
+          <td>3000</td>
+          <td>15%</td>
+          <td>12 meses</td>
+          <td>287.50</td>
+          <td><button>Eliminar</button></td>
+        </tr>
+        <tr>
+          <td>1723456789</td>
+          <td>María</td>
+          <td>Gómez</td>
+          <td>5000</td>
+          <td>14%</td>
+          <td>24 meses</td>
+          <td>237.50</td>
+          <td><button>Eliminar</button></td>
+        </tr>
+        <tr>
+          <td>1734567890</td>
+          <td>Carlos</td>
+          <td>Ramírez</td>
+          <td>1500</td>
+          <td>16%</td>
+          <td>6 meses</td>
+          <td>290.00</td>
+          <td><button>Eliminar</button></td>
+        </tr>
+    </tbody>
+  </table>
+</section>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema de Créditos</title>
+</head>
+<body>
+
+<header>
+  <h1>Sistema Básico de Créditos</h1>
+   <link rel="stylesheet" href="simulador_completo.css">
+</header>
+
+<nav>
+  <button>Parámetros</button>
+  <button>Clientes</button>
+</nav>
+
+<section id="parametros">
+  <h2>Configurar Parámetros</h2>
+
+  <label>Tasa de interés:</label>
+  <input type="number" id="tasaInteres">
+  <span>%</span>
+
+  <br>
+  <button>Guardar tasa</button>
+
+  <p id="mensajeTasa"></p>
+</section>
+
+<section id="clientes">
+  <h2>Registro de Clientes</h2>
+
+  <input type="text" >
+  <input type="text" >
+  <input type="text" >
+  <input type="number" >
+  <input type="number" >
+
+  <br>
+
+  <button >Guardar cliente</button>
+  <button >Limpiar</button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Cédula</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Ingresos</th>
+        <th>Egresos</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody id="tablaClientes">
+       <tr>
+          <td>1712345678</td>
+          <td>Juan</td>
+          <td>Pérez</td>
+          <td>1200</td>
+          <td>500</td>
+          <td>
+            <button>Actualizar</button>
+            <button>Eliminar</button>
+          </td>
+        </tr>
+        <tr>
+          <td>1723456789</td>
+          <td>María</td>
+          <td>Gómez</td>
+          <td>1500</td>
+          <td>600</td>
+          <td>
+            <button>Actualizar</button>
+            <button>Eliminar</button>
+          </td>
+        </tr>
+        <tr>
+          <td>1734567890</td>
+          <td>Carlos</td>
+          <td>Ramírez</td>
+          <td>900</td>
+          <td>350</td>
+          <td>
+            <button>Actualizar</button>
+            <button>Eliminar</button>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</section>
+
+
+
+<script src="simulador_completo.js"></script>
+<script src="utilitarios.js"></script>
+</body>
+</html>
