@@ -4,22 +4,21 @@
 <head>
   <meta charset="UTF-8">
   <title>Sistema de Créditos</title>
+  <link rel="stylesheet" href="simulador_completo.css">
 </head>
 
 <body>
 
   <header>
     <h1>Sistema Básico de Créditos</h1>
-    <link rel="stylesheet" href="simulador_completo.css">
   </header>
 
   <nav>
-    <nav>
-      <button onclick="mostrarSeccion('parametros')">Parámetros</button>
-      <button onclick="mostrarSeccion('clientes')">Clientes</button>
-      <button onclick="mostrarSeccion('credito')">Créditos</button>
-      <button onclick="mostrarSeccion('listaCreditos')">Historial</button>
-    </nav>
+    <button onclick="mostrarSeccion('parametros')">Parámetros</button>
+    <button onclick="mostrarSeccion('clientes')">Clientes</button>
+    <button onclick="mostrarSeccion('credito')">Créditos</button>
+    <button onclick="mostrarSeccion('listaCreditos')">Historial</button>
+    <button onclick="mostrarSeccion('acercaDe')">Acerca de</button>
   </nav>
 
   <section id="parametros">
@@ -28,9 +27,13 @@
     <label>Tasa de interés:</label>
     <input type="number" id="tasaInteres" min="10" max="20" value="15">
     <span>%</span>
+    <br><br>
 
-    <br>
-    <button onclick="guardarTasa()">Guardar tasa</button>
+    <label>Monto Máximo Permitido ($):</label>
+    <input type="number" id="txtMontoMaximo" value="50000" placeholder="Ej: 50000">
+    
+    <br><br>
+    <button onclick="guardarParametros()">Guardar Parámetros</button>
     <p id="mensajeTasa"></p>
   </section>
 
@@ -40,10 +43,11 @@
     <input type="text" id="txtCedula" placeholder="Cédula">
     <input type="text" id="txtNombre" placeholder="Nombre">
     <input type="text" id="txtApellido" placeholder="Apellido">
+    <input type="text" id="txtTelefono" placeholder="Teléfono">
     <input type="number" id="txtIngresos" placeholder="Ingresos">
     <input type="number" id="txtEgresos" placeholder="Egresos">
 
-    <br>
+    <br><br>
 
     <button onclick="guardarCliente()">Guardar cliente</button>
     <button onclick="limpiar()">Limpiar</button>
@@ -53,6 +57,7 @@
           <th>Cédula</th>
           <th>Nombre</th>
           <th>Apellido</th>
+          <th>Teléfono</th>
           <th>Ingresos</th>
           <th>Egresos</th>
           <th>Acciones</th>
@@ -63,39 +68,32 @@
           <td>1712345678</td>
           <td>Juan</td>
           <td>Pérez</td>
+          <td>0999999991</td>
           <td>1200</td>
           <td>500</td>
-          <td>
-            <button>Actualizar</button>
-            <button>Eliminar</button>
-          </td>
+          <td><button onclick="seleccionarCliente('1712345678')">Actualizar</button></td>
         </tr>
         <tr>
           <td>1723456789</td>
           <td>María</td>
           <td>Gómez</td>
+          <td>0999999992</td>
           <td>1500</td>
           <td>600</td>
-          <td>
-            <button>Actualizar</button>
-            <button>Eliminar</button>
-          </td>
+          <td><button onclick="seleccionarCliente('1723456789')">Actualizar</button></td>
         </tr>
         <tr>
           <td>1734567890</td>
           <td>Carlos</td>
           <td>Ramírez</td>
+          <td>0999999993</td>
           <td>900</td>
           <td>350</td>
-          <td>
-            <button>Actualizar</button>
-            <button>Eliminar</button>
-          </td>
+          <td><button onclick="seleccionarCliente('1734567890')">Actualizar</button></td>
         </tr>
       </tbody>
     </table>
   </section>
-
 
   <section id="credito">
     <h2>Solicitar Crédito</h2>
@@ -108,7 +106,7 @@
     <input type="number" id="montoCredito" placeholder="Monto (ej: 500)">
     <input type="number" id="plazoCredito" placeholder="Plazo en meses (ej: 12)">
 
-    <br>
+    <br><br>
 
     <button onclick="calcularCredito()">Calcular crédito</button>
 
@@ -124,6 +122,7 @@
     <input type="text" id="buscarCedulaListado" placeholder="Cédula a buscar">
     <button onclick="buscarCreditosCliente()">Buscar</button>
     <button onclick="pintarCreditos(creditos)">Ver todos</button>
+    <button onclick="filtrarCreditosVIP()" style="background-color: #ffc107; color: black; font-weight: bold;">Créditos VIP</button>
 
     <table>
       <thead>
@@ -142,7 +141,16 @@
     </table>
   </section>
 
-
+  <section id="acercaDe">
+    <h2>Acerca del Desarrollador</h2>
+    <div class="card-autor">
+      <img id="fotoDesarrollador" src="https://via.placeholder.com/150" alt="Foto del Desarrollador" style="border-radius: 50%; width: 150px; height: 150px; margin-bottom: 15px;">
+      <h3>ian mera</h3>
+      <p><b>Carrera:</b> Desarrollo de Software / Computación</p>
+      <p><b>Frase Personal:</b> "La lógica te llevará desde A hasta B. La imaginación te llevará a todas partes."</p>
+      <p><b>Redes Sociales:</b> GitHub: @tuusuario | LinkedIn: ......</p>
+    </div>
+  </section>
 
   <script src="utilitarios.js"></script>
   <script src="simulador_completo.js"></script>
